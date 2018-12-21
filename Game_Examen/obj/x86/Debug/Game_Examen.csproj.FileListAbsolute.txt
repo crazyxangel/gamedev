@@ -1,0 +1,62 @@
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\Images\Tiles\Tile (2).xnb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\Images\Tiles\Tile (5).xnb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Game_Examen.exe
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Game_Examen.pdb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.csproj.CoreCompileInputs.cache
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.csproj.CopyComplete
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.exe
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.pdb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\Background.xnb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\Solid.xnb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\Spike.xnb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\Hero.xnb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\Hero2.xnb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\tiles.xnb
+C:\Users\seanh\OneDrive\Documents\Gamedev\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.csprojResolveAssemblyReference.cache
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Content\Images\Tiles\Tile (2).xnb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Content\Images\Tiles\Tile (5).xnb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Content\Background.xnb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Content\Hero.xnb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Content\Hero2.xnb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Content\Solid.xnb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Content\Spike.xnb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Content\tiles.xnb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Game_Examen.exe
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\Game_Examen.pdb
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\MonoGame.Framework.dll
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.dll
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.XInput.dll
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\MonoGame.Framework.xml
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.xml
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\bin\Windows\x86\Debug\SharpDX.XInput.xml
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\obj\x86\Debug\Game_Examen.csprojResolveAssemblyReference.cache
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\obj\x86\Debug\Game_Examen.csproj.CoreCompileInputs.cache
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\obj\x86\Debug\Game_Examen.csproj.CopyComplete
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\obj\x86\Debug\Game_Examen.exe
+F:\Users\seanh\Documents\Game_Examen good\Game_Examen\obj\x86\Debug\Game_Examen.pdb
