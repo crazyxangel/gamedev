@@ -4,12 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>F:/Users/seanh/Documents/Game_Examen good/Game_Examen/Content/Background.png</File>
-    <File>F:/Users/seanh/Documents/Game_Examen good/Game_Examen/Content/Hero.png</File>
-    <File>F:/Users/seanh/Documents/Game_Examen good/Game_Examen/Content/Hero2.png</File>
-    <File>F:/Users/seanh/Documents/Game_Examen good/Game_Examen/Content/Solid.png</File>
-    <File>F:/Users/seanh/Documents/Game_Examen good/Game_Examen/Content/Spike.png</File>
-    <File>F:/Users/seanh/Documents/Game_Examen good/Game_Examen/Content/tiles.png</File>
+    <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Background.png</File>
+    <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Hero.png</File>
+    <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Hero2.png</File>
+    <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Solid.png</File>
+    <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Spike.png</File>
+    <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/tiles.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
