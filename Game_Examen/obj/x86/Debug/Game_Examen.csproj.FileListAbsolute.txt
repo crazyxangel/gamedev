@@ -91,3 +91,4 @@ F:\Users\seanh\Documents\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.cspro
 F:\Users\seanh\Documents\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.csproj.CopyComplete
 F:\Users\seanh\Documents\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.exe
 F:\Users\seanh\Documents\Game_Examen\Game_Examen\obj\x86\Debug\Game_Examen.pdb
+F:\Users\seanh\Documents\Game_Examen\Game_Examen\bin\Windows\x86\Debug\Content\Font.xnb

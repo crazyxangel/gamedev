@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/seanh/OneDrive/Documents/Gamedev/Game_Examen/Game_Examen/Content/Hero.png</SourceFile>
-  <SourceTime>2018-12-09T21:17:11.3883082+01:00</SourceTime>
-  <DestFile>C:/Users/seanh/OneDrive/Documents/Gamedev/Game_Examen/Game_Examen/Content/bin/Windows/Hero.xnb</DestFile>
-  <DestTime>2018-12-09T21:24:44.0796235+01:00</DestTime>
+  <SourceFile>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Hero.png</SourceFile>
+  <SourceTime>2018-12-09T21:17:11+01:00</SourceTime>
+  <DestFile>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/bin/Windows/Hero.xnb</DestFile>
+  <DestTime>2018-12-24T16:29:21.9416267+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -41,4 +41,20 @@ namespace Game_Examen
 
         }
     }
+    public class ControlScreens : Controls
+    {
+        public bool select { get; set; }
+        public bool back { get; set; }
+        public override void Update()
+        {
+            KeyboardState stateKey = Keyboard.GetState();
+
+            back = stateKey.IsKeyDown(Keys.Back);
+            select = stateKey.IsKeyDown(Keys.Enter);
+            left = stateKey.IsKeyDown(Keys.Q);
+            up = stateKey.IsKeyDown(Keys.Z);
+            down = stateKey.IsKeyDown(Keys.S);
+            right = stateKey.IsKeyDown(Keys.D);
+        }
+    }
 }

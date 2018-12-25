@@ -45,8 +45,11 @@
     <Compile Include="Controls.cs" />
     <Compile Include="Frame.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GameOver.cs" />
+    <Compile Include="GameScreen.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

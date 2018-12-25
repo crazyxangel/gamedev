@@ -15,98 +15,97 @@ namespace Game_Examen
         public Vector2 Position { get; set; }
         public Texture2D Texture { get; set; }
         public TimeSpan Duration { get; set; }
+        public bool alive { get; set; }
 
-        private bool cLeft;
-        private bool cRight;
-        private bool cDown;
-        private bool cUp;
-        private bool left = false;
-        private bool right = true;
-        private bool jump = false;
-        private bool alive { get; set; }
+        private bool _cLeft;
+        private bool _cRight;
+        private bool _cDown;
+        private bool _cUp;
+        private bool _left = false;
+        private bool _right = true;
+        private bool _jump = false;
+        private bool _lastjump = false;
 
-        public int positionleft = 60;
-        public int positionalt = 120;
+        private int _position_left = 60;
+        private int _positionalt = 120;
 
-
-        private int acceleration { get; set; }
-
-        private int accelerationjump = 15;
-        private int deadframes { get; set; }
+        private int _acceleration;
+        private int _accelerationjump = 15;
+        private int _deadframes;
 
         private Rectangle _showRectangle;
 
-        private Rectangle _playerRectangle;
+        public Rectangle playerRectangle { get; set; }
 
-        private Rectangle _collisionleft;
-        private Rectangle _collisionright;
-        private Rectangle _collisionup;
-        private Rectangle _collisiondown;
+        private Rectangle __collision_left;
+        private Rectangle __collision_right;
+        private Rectangle __collisionup;
+        private Rectangle __collisiondown;
 
         private Rectangle _idleframeL;
         private Rectangle _idleframeR;
 
-        private Animation _animationright;
-        private Animation _animationleft;
+        private Animation _animation_right;
+        private Animation _animation_left;
         private Animation _animationjumpL;
         private Animation _animationjumpR;
         private Animation _animationfall;
         private Animation _animationdead;
 
         private Controls _controls;
-        private List<Rectangle> collision = new List<Rectangle>();
-        private List<Rectangle> collisionLethal = new List<Rectangle>();
+        private List<Rectangle> _collision = new List<Rectangle>();
+        private List<Rectangle> _collisionLethal = new List<Rectangle>();
         /// <summary>
         /// Hierin worden de animaties aangemaakt
         /// </summary>
         /// <param name="texture"></param>
         /// <param name="player"></param>
-        /// <param name="collisionList"></param>
+        /// <param name="_collisionList"></param>
         /// <param name="lethalList"></param>
-        public Player(Texture2D texture, int player, List<Rectangle> collisionList, List<Rectangle> lethalList)
+        public Player(Texture2D texture, int player, List<Rectangle> _collisionList, List<Rectangle> lethalList)
         {
-            collision = collisionList;
-            collision.ToArray();
-            collisionLethal = lethalList;
-            collisionLethal.ToArray();
+            _collision = _collisionList;
+            _collision.ToArray();
+            _collisionLethal = lethalList;
+            _collisionLethal.ToArray();
             alive = true;
 
-            accelerationjump = 15;
+            _accelerationjump = 15;
 
             if (player == 1)
                 _controls = new ControlP1();
             if (player == 2)
                 _controls = new ControlP2();
 
-            #region Animation left
-            _animationleft = new Animation();
-            _animationleft.AddFrame(new Rectangle(0, 120, 60, 60));
-            _animationleft.AddFrame(new Rectangle(60, 120, 60, 60));
-            _animationleft.AddFrame(new Rectangle(120, 120, 60, 60));
-            _animationleft.AddFrame(new Rectangle(180, 120, 60, 60));
-            _animationleft.AddFrame(new Rectangle(240, 120, 60, 60));
-            _animationleft.AddFrame(new Rectangle(300, 120, 60, 60));
-            _animationleft.AddFrame(new Rectangle(360, 120, 60, 60));
-            _animationleft.AddFrame(new Rectangle(420, 120, 60, 60));
+            #region Animation _left
+            _animation_left = new Animation();
+            _animation_left.AddFrame(new Rectangle(0, 120, 60, 60));
+            _animation_left.AddFrame(new Rectangle(60, 120, 60, 60));
+            _animation_left.AddFrame(new Rectangle(120, 120, 60, 60));
+            _animation_left.AddFrame(new Rectangle(180, 120, 60, 60));
+            _animation_left.AddFrame(new Rectangle(240, 120, 60, 60));
+            _animation_left.AddFrame(new Rectangle(300, 120, 60, 60));
+            _animation_left.AddFrame(new Rectangle(360, 120, 60, 60));
+            _animation_left.AddFrame(new Rectangle(420, 120, 60, 60));
             Texture = texture;
-            _animationleft.MovesaSecond = 16;
+            _animation_left.MovesaSecond = 16;
             #endregion
 
-            #region Animation right
-            _animationright = new Animation();
-            _animationright.AddFrame(new Rectangle(0, 60, 60, 60));
-            _animationright.AddFrame(new Rectangle(60, 60, 60, 60));
-            _animationright.AddFrame(new Rectangle(120, 60, 60, 60));
-            _animationright.AddFrame(new Rectangle(180, 60, 60, 60));
-            _animationright.AddFrame(new Rectangle(240, 60, 60, 60));
-            _animationright.AddFrame(new Rectangle(300, 60, 60, 60));
-            _animationright.AddFrame(new Rectangle(360, 60, 60, 60));
-            _animationright.AddFrame(new Rectangle(420, 60, 60, 60));
+            #region Animation _right
+            _animation_right = new Animation();
+            _animation_right.AddFrame(new Rectangle(0, 60, 60, 60));
+            _animation_right.AddFrame(new Rectangle(60, 60, 60, 60));
+            _animation_right.AddFrame(new Rectangle(120, 60, 60, 60));
+            _animation_right.AddFrame(new Rectangle(180, 60, 60, 60));
+            _animation_right.AddFrame(new Rectangle(240, 60, 60, 60));
+            _animation_right.AddFrame(new Rectangle(300, 60, 60, 60));
+            _animation_right.AddFrame(new Rectangle(360, 60, 60, 60));
+            _animation_right.AddFrame(new Rectangle(420, 60, 60, 60));
             Texture = texture;
-            _animationright.MovesaSecond = 16;
+            _animation_right.MovesaSecond = 16;
             #endregion
 
-            #region Animation jump R
+            #region Animation _jump R
             _animationjumpR = new Animation();
             _animationjumpR.AddFrame(new Rectangle(0, 0, 60, 60));
             _animationjumpR.AddFrame(new Rectangle(60, 0, 60, 60));
@@ -120,7 +119,7 @@ namespace Game_Examen
             _animationjumpR.MovesaSecond = 4;
             #endregion
 
-            #region Animation jump L
+            #region Animation _jump L
             _animationjumpL = new Animation();
             _animationjumpL.AddFrame(new Rectangle(0, 180, 60, 60));
             _animationjumpL.AddFrame(new Rectangle(60, 180, 60, 60));
@@ -169,190 +168,209 @@ namespace Game_Examen
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (left)
+            if (_left)
                 _showRectangle = _idleframeL;
 
-            if (right)
+            if (_right)
                 _showRectangle = _idleframeR;
 
             if (_controls.left)
-                _showRectangle = _animationleft.CurrentFrame.SourceRectangle;
+                _showRectangle = _animation_left.CurrentFrame.SourceRectangle;
 
             if (_controls.right)
-                _showRectangle = _animationright.CurrentFrame.SourceRectangle;
+                _showRectangle = _animation_right.CurrentFrame.SourceRectangle;
 
-            if (_controls.up && left)
+            if (_controls.up && _left&&_jump)
                 _showRectangle = _animationjumpL.CurrentFrame.SourceRectangle;
 
-            if (_controls.up && right)
+            if (_controls.up && _right&&_jump)
                 _showRectangle = _animationjumpR.CurrentFrame.SourceRectangle;
 
-            if (!collisiondown() && !_controls.up)
+            if (!_collisiondown() && !_jump)
                 _showRectangle = _animationfall.CurrentFrame.SourceRectangle;
 
             if (!amIalive())
                 _showRectangle = _animationdead.CurrentFrame.SourceRectangle;
 
-            spriteBatch.Draw(Texture, new Vector2(positionleft, positionalt), _showRectangle, Color.AliceBlue);
+            spriteBatch.Draw(Texture, new Vector2(_position_left, _positionalt), _showRectangle, Color.AliceBlue);
         }
 
         #region Collision
         /// <summary>
-        /// Here we'll check if the	left side of the robot makes collision with anything
+        /// Here we'll check if the	_left side of the robot makes _collision with anything
         /// </summary>
         /// <returns></returns>
-        public bool collisionleft()
+        public bool _collision_left()
         {
-            cLeft = false;
-            _collisionleft = new Rectangle(positionleft + 10, positionalt, 10, 30);
-            foreach (Rectangle item in collision)
+            _cLeft = false;
+            __collision_left = new Rectangle(_position_left + 10, _positionalt, 10, 30);
+            foreach (Rectangle item in _collision)
             {
-                if (item.Intersects(_collisionleft))
-                    cLeft = true;
+                if (item.Intersects(__collision_left))
+                    _cLeft = true;
             }
-            return cLeft;
+            return _cLeft;
         }
         /// <summary>
-        /// Here we'll check if the right side of the robot makes collision with anything
+        /// Here we'll check if the _right side of the robot makes _collision with anything
         /// </summary>
         /// <returns></returns>
-        public bool collisionright()
+        public bool _collision_right()
         {
-            cRight = false;
-            _collisionright = new Rectangle(positionleft + 40, positionalt, 10, 30);
-            foreach (Rectangle item in collision)
+            _cRight = false;
+            __collision_right = new Rectangle(_position_left + 40, _positionalt, 10, 30);
+            foreach (Rectangle item in _collision)
             {
-                if (item.Intersects(_collisionright))
-                    cRight = true;
+                if (item.Intersects(__collision_right))
+                    _cRight = true;
             }
-            return cRight;
+            return _cRight;
 
         }
         /// <summary>
-        /// Here we'll check if the top of the robot makes collision with anything
+        /// Here we'll check if the top of the robot makes _collision with anything
         /// </summary>
         /// <returns></returns>
-        public bool collisionup()
+        public bool _collisionup()
         {
-            cUp = false;
-            _collisionup = new Rectangle(positionleft + 20, positionalt - 10, 20, 10);
-            foreach (Rectangle item in collision)
+            _cUp = false;
+            __collisionup = new Rectangle(_position_left + 20, _positionalt - 10, 20, 10);
+            foreach (Rectangle item in _collision)
             {
-                if (item.Intersects(_collisionup))
-                    cUp = true;
+                if (item.Intersects(__collisionup))
+                    _cUp = true;
             }
-            return cUp;
+            return _cUp;
         }
         /// <summary>
-        /// Here we'll check if the bottom of the robot makes collision with anything
+        /// Here we'll check if the bottom of the robot makes _collision with anything
         /// </summary>
         /// <returns></returns>
-        public bool collisiondown()
+        public bool _collisiondown()
         {
-            cDown = false;
-            _collisiondown = new Rectangle(positionleft + 20, positionalt + 55, 20, 15);
-            foreach (Rectangle item in collision)
+            _cDown = false;
+            __collisiondown = new Rectangle(_position_left + 20, _positionalt + 55, 20, 15);
+            foreach (Rectangle item in _collision)
             {
-                if (item.Intersects(_collisiondown))
+                if (item.Intersects(__collisiondown))
                 {
-                    cDown = true;
-                    positionalt = item.Y - 56;
+                    _cDown = true;
+                    _positionalt = item.Y - 56;
                 }
             }
-            return cDown;
+            return _cDown;
         }
         /// <summary>
-        /// Here we'll check if the robot makes collision with a deadly object
+        /// Here we'll check if the robot makes _collision with a deadly object
         /// </summary>
         /// <returns></returns>
         public bool amIalive()
         {
-            _playerRectangle = new Rectangle(positionleft + 20, positionalt, 20, 60);
-            foreach (Rectangle item in collisionLethal)
+            playerRectangle = new Rectangle(_position_left + 20, _positionalt, 20, 60);
+            foreach (Rectangle item in _collisionLethal)
             {
-                if (item.Intersects(_playerRectangle))
+                if (item.Intersects(playerRectangle))
                     alive = false;
             }
             return alive;
         }
 
         #endregion
+        public void deadframesdone(GameTime gameTime)
+        {
 
+            if (!amIalive())
+            {
+                if (_deadframes < 12)
+                {
+                    _animationdead.Update(gameTime);
+                    _deadframes++;
+                }
+            }
+        }
         public void movement(GameTime gameTime)
+
         {
 
             if (amIalive())
             {
                 _controls.Update();
-                if (!collisiondown() && !jump)
+                if (!_collisiondown() && !_jump)
                 {
-                    positionalt += 1 * acceleration;
+                    _positionalt += 1 * _acceleration;
                     _animationfall.Update(gameTime);
-                    if (acceleration < 15)
-                        acceleration += 1;
+                    if (_acceleration < 15)
+                        _acceleration += 1;
                 }
 
-                if (collisiondown())
-                    acceleration = 1;
+                if (_collisiondown())
+                    _acceleration = 1;
 
-                if (accelerationjump == 0)
+                if (_accelerationjump == 0)
                 {
-                    accelerationjump = 15;
-                    jump = false;
+                    _accelerationjump = 15;
+                    _jump = false;
+                    _lastjump = true;
                 }
 
                 if (_controls.left)
                 {
-                    left = true;
-                    right = false;
-                    if (!collisionleft())
-                        positionleft -= 5;
+                    _left = true;
+                    _right = false;
+                    if (!_collision_left())
+                        _position_left -= 5;
 
-                    _animationleft.Update(gameTime);
+                    _animation_left.Update(gameTime);
                 }
 
                 if (_controls.right)
                 {
-                    left = false;
-                    right = true;
+                    _left = false;
+                    _right = true;
 
-                    if (!collisionright())
-                        positionleft += 5;
+                    if (!_collision_right())
+                        _position_left += 5;
 
-                    _animationright.Update(gameTime);
+                    _animation_right.Update(gameTime);
                 }
-                if (_controls.up && !jump && !collisionup() && collisiondown())
-                    jump = true;
-                if (left)
+                if (_controls.up && !_jump && !_collisionup() && _collisiondown()&&!_lastjump)
+                    _jump = true;
+                if (!_controls.up && _lastjump)
+                    _lastjump = false;
+                if (_left)
                     _animationjumpL.Update(gameTime);
-                if (right)
+                if (_right)
                     _animationjumpR.Update(gameTime);
-
-                if (jump)
+                if (_jump & _left&&!_lastjump)
                 {
-                    if (jump)
-                    {
-                        if (!collisionup())
-                            positionalt -= 1 * accelerationjump;
-                        _animationfall.Update(gameTime);
-                        if (accelerationjump > 0)
-                            accelerationjump -= 1;
-                    }
+                    _animationjumpL.Update(gameTime);
+                    if (!_collisionup())
+                        _positionalt -= 1 * _accelerationjump;
+                    if (_accelerationjump > 0)
+                        _accelerationjump -= 1;
+                }
+                if (_jump & _right&&!_lastjump)
+                {
+                    _animationjumpR.Update(gameTime);
+                    if (!_collisionup())
+                        _positionalt -= 1 * _accelerationjump;
+                    if (_accelerationjump > 0)
+                        _accelerationjump -= 1;
                 }
             }
             if (!amIalive())
             {
-                if (deadframes < 12)
+                if (_deadframes < 12)
                 {
                     _animationdead.Update(gameTime);
-                    deadframes++;
+                    _deadframes++;
                 }
 
-                if (!collisiondown())
+                if (!_collisiondown())
                 {
-                    positionalt += 1 * acceleration;
-                    if (acceleration < 15)
-                        acceleration += 1;
+                    _positionalt += 1 * _acceleration;
+                    if (_acceleration < 15)
+                        _acceleration += 1;
                 }
             }
         }
