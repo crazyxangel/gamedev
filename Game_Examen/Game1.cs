@@ -17,6 +17,8 @@ namespace Game_Examen
         private SpriteFont font;
         private Player player;
         private Player player2;
+        private Player reset1;
+        private Player reset2;
         private GameScreen gamescreen;
         private Menu menu;
         private GameOver gameOver;
@@ -73,6 +75,8 @@ namespace Game_Examen
 
             player = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
             player2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
+            reset1 = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
+            reset2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
 
         }
 
@@ -92,6 +96,9 @@ namespace Game_Examen
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+
+            reset1 = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
+            reset2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit();
@@ -99,10 +106,34 @@ namespace Game_Examen
 
             // TODO: Add your update logic here
             if (gameState.gameover)
+            {
                 menu.gameover();
+            }
+                gamescreen.update(menu.screen);
 
-            gamescreen.update(menu.screen);
+            if (gameOver.selection == 1)
+            {
+                player = reset1;
+                player2 = reset2;
 
+                gameOver.selection = 0;
+                gameState.gameover = false;
+                menu.screen = 1;
+                //player.reset();
+                //player2.reset();
+                //gamescreen.update(1);
+            }
+            if(gameOver.selection == 2)
+            {
+                player = reset1;
+                player2 = reset2;
+
+                gameOver.selection = 0;
+                gameState.gameover = false;
+                menu.screen = 0;
+            }
+
+            
             if (gamescreen.startscreen)
                 menu.update();
 
@@ -116,8 +147,10 @@ namespace Game_Examen
             {
                 player.deadframesdone(gameTime);
                 player2.deadframesdone(gameTime);
+                gameOver.update();
             }
-
+            if (menu.screen == 2||gameOver.selection==2)
+                this.Exit();
             base.Update(gameTime);
         }
 
@@ -127,6 +160,7 @@ namespace Game_Examen
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
@@ -158,9 +192,10 @@ namespace Game_Examen
             {
                 player.Draw(spriteBatch);
                 player2.Draw(spriteBatch);
-                gameOver.Draw(spriteBatch);
+                gameOver.Draw(spriteBatch,gameState.winner);
             }
 
+            spriteBatch.DrawString(font, player._positionalt.ToString(), new Vector2(100, 100), Color.Pink);
             spriteBatch.End();
 
             base.Draw(gameTime);

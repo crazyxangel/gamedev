@@ -106,7 +106,7 @@ namespace Game_Examen
 			Texture = texture;
 			Position = new Vector2(x, y);
 			CollisionRect = new Rectangle(x, y+30, 60, 30);
-			CollisionLethal = new Rectangle(x, y+20, 60, 60);
+			CollisionLethal = new Rectangle(x, y+15, 60, 60);
 			_showRectangle = new Rectangle(360, 0, 60, 60);
 		}
 		

@@ -26,6 +26,7 @@ namespace Game_Examen
 
             startscreen = false;
             playscreen = false;
+            gameoverscreen = false;
             //gameoverscreen = false;
             switch (screen)
             {

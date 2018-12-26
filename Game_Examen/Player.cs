@@ -26,8 +26,8 @@ namespace Game_Examen
         private bool _jump = false;
         private bool _lastjump = false;
 
-        private int _position_left = 60;
-        private int _positionalt = 120;
+        public int _position_left = 400;
+        public int _positionalt = 120;
 
         private int _acceleration;
         private int _accelerationjump = 15;
@@ -71,12 +71,20 @@ namespace Game_Examen
             alive = true;
 
             _accelerationjump = 15;
+            _acceleration = 1;
 
             if (player == 1)
+            {
+                _position_left = 120;
                 _controls = new ControlP1();
+            }
             if (player == 2)
+            {
+                _position_left = 1740;
                 _controls = new ControlP2();
-
+                _right = false;
+                _left = true;
+            }
             #region Animation _left
             _animation_left = new Animation();
             _animation_left.AddFrame(new Rectangle(0, 120, 60, 60));
@@ -180,10 +188,10 @@ namespace Game_Examen
             if (_controls.right)
                 _showRectangle = _animation_right.CurrentFrame.SourceRectangle;
 
-            if (_controls.up && _left&&_jump)
+            if (_controls.up && _left && _jump)
                 _showRectangle = _animationjumpL.CurrentFrame.SourceRectangle;
 
-            if (_controls.up && _right&&_jump)
+            if (_controls.up && _right && _jump)
                 _showRectangle = _animationjumpR.CurrentFrame.SourceRectangle;
 
             if (!_collisiondown() && !_jump)
@@ -264,6 +272,7 @@ namespace Game_Examen
         /// Here we'll check if the robot makes _collision with a deadly object
         /// </summary>
         /// <returns></returns>
+
         public bool amIalive()
         {
             playerRectangle = new Rectangle(_position_left + 20, _positionalt, 20, 60);
@@ -333,15 +342,19 @@ namespace Game_Examen
 
                     _animation_right.Update(gameTime);
                 }
-                if (_controls.up && !_jump && !_collisionup() && _collisiondown()&&!_lastjump)
+                if (_controls.up && !_jump && !_collisionup() && _collisiondown() && !_lastjump)
                     _jump = true;
+
                 if (!_controls.up && _lastjump)
                     _lastjump = false;
+
                 if (_left)
                     _animationjumpL.Update(gameTime);
+
                 if (_right)
                     _animationjumpR.Update(gameTime);
-                if (_jump & _left&&!_lastjump)
+
+                if (_jump & _left && !_lastjump)
                 {
                     _animationjumpL.Update(gameTime);
                     if (!_collisionup())
@@ -349,7 +362,7 @@ namespace Game_Examen
                     if (_accelerationjump > 0)
                         _accelerationjump -= 1;
                 }
-                if (_jump & _right&&!_lastjump)
+                if (_jump & _right && !_lastjump)
                 {
                     _animationjumpR.Update(gameTime);
                     if (!_collisionup())

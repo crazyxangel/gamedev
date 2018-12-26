@@ -38,7 +38,7 @@ namespace Game_Examen
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(font, "play", new Vector2(320, 200), Color.White);
-            spriteBatch.DrawString(font, "quit", new Vector2(320, 300), Color.White);
+            spriteBatch.DrawString(font, "Exit", new Vector2(320, 300), Color.White);
             spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 400), Color.White);
             spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 500), Color.White);
             spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 600), Color.White);
@@ -80,11 +80,11 @@ namespace Game_Examen
             if (controls.select)
                 screen = pos+1;
             /*
-            if (controls.left)
-            if (controls.right)
+    if (controls.left)
+    if (controls.right)
 
-            if (controls.back)
-            */
+    if (controls.back)
+    */
         }
     }
 }
