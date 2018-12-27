@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Background.png</File>
+    <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/crown.png</File>
     <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Font.spritefont</File>
     <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Hero.png</File>
     <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/Hero2.png</File>
@@ -13,6 +14,7 @@
     <File>F:/Users/seanh/Documents/Game_Examen/Game_Examen/Content/tiles.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

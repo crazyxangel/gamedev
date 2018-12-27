@@ -30,8 +30,11 @@ namespace Game_Examen
         public int _positionalt = 120;
 
         private int _acceleration;
-        private int _accelerationjump = 15;
+        private int _accelerationjump;
         private int _deadframes;
+
+        private int jumpheight = 13;
+        private int speed = 6;
 
         private Rectangle _showRectangle;
 
@@ -69,8 +72,7 @@ namespace Game_Examen
             _collisionLethal = lethalList;
             _collisionLethal.ToArray();
             alive = true;
-
-            _accelerationjump = 15;
+            _accelerationjump = jumpheight;
             _acceleration = 1;
 
             if (player == 1)
@@ -257,7 +259,7 @@ namespace Game_Examen
         public bool _collisiondown()
         {
             _cDown = false;
-            __collisiondown = new Rectangle(_position_left + 20, _positionalt + 55, 20, 15);
+            __collisiondown = new Rectangle(_position_left + 20, _positionalt + 55, 20, 5);
             foreach (Rectangle item in _collision)
             {
                 if (item.Intersects(__collisiondown))
@@ -285,18 +287,7 @@ namespace Game_Examen
         }
 
         #endregion
-        public void deadframesdone(GameTime gameTime)
-        {
 
-            if (!amIalive())
-            {
-                if (_deadframes < 12)
-                {
-                    _animationdead.Update(gameTime);
-                    _deadframes++;
-                }
-            }
-        }
         public void movement(GameTime gameTime)
 
         {
@@ -317,7 +308,7 @@ namespace Game_Examen
 
                 if (_accelerationjump == 0)
                 {
-                    _accelerationjump = 15;
+                    _accelerationjump = jumpheight;
                     _jump = false;
                     _lastjump = true;
                 }
@@ -327,7 +318,7 @@ namespace Game_Examen
                     _left = true;
                     _right = false;
                     if (!_collision_left())
-                        _position_left -= 5;
+                        _position_left -= speed;
 
                     _animation_left.Update(gameTime);
                 }
@@ -338,7 +329,7 @@ namespace Game_Examen
                     _right = true;
 
                     if (!_collision_right())
-                        _position_left += 5;
+                        _position_left += speed;
 
                     _animation_right.Update(gameTime);
                 }
@@ -384,6 +375,19 @@ namespace Game_Examen
                     _positionalt += 1 * _acceleration;
                     if (_acceleration < 15)
                         _acceleration += 1;
+                }
+            }
+            
+        }
+        public void deadframesdone(GameTime gameTime)
+        {
+
+            if (!amIalive())
+            {
+                if (_deadframes < 12)
+                {
+                    _animationdead.Update(gameTime);
+                    _deadframes++;
                 }
             }
         }

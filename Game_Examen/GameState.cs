@@ -15,18 +15,20 @@ namespace Game_Examen
         private Rectangle player1;
         private Rectangle player2;
 
-        public void update(bool p1Alive, bool p2Alive, Rectangle p1,Rectangle p2)
+        public void update(bool p1Alive, bool p2Alive, Rectangle p1,Rectangle p2,bool tag1,bool tag2)
         {
-            if(p1Alive&&!p2Alive)
+            if(p1Alive&&!p2Alive|| p1.Intersects(p2) && tag1)
             {
                 winner = "player1 wins";
                 gameover = true;
             }
-            if(!p1Alive&&p2Alive)
+            if(!p1Alive&&p2Alive|| p1.Intersects(p2) && tag2)
             {
                 winner = "player2 wins";
                 gameover = true;
             }
+            //if(p1.Intersects(p2)&&tag1)
+            //if (_crownrect.Intersects(_P1)&&!ownedP2)
         }
     }
 }

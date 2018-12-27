@@ -14,12 +14,14 @@ namespace Game_Examen
         private Texture2D tilesTexture;
         private Texture2D heroTexture;
         private Texture2D hero2Texture;
+        private Texture2D tagcrown;
         private SpriteFont font;
         private Player player;
         private Player player2;
         private Player reset1;
         private Player reset2;
         private GameScreen gamescreen;
+        private Tagger tagger;
         private Menu menu;
         private GameOver gameOver;
         private Level level1;
@@ -61,8 +63,10 @@ namespace Game_Examen
             heroTexture = Content.Load<Texture2D>("Hero");
             hero2Texture = Content.Load<Texture2D>("Hero2");
             tilesTexture = Content.Load<Texture2D>("tiles");
+            tagcrown = Content.Load<Texture2D>("crown");
             font = Content.Load<SpriteFont>("Font");
 
+            tagger = new Tagger(tagcrown);
 
             level1 = new Level(tilesTexture);
             level1.CreateLevel();
@@ -72,6 +76,7 @@ namespace Game_Examen
 
             gameOver = new GameOver(font, spriteBatch);
             menu = new Menu(font, spriteBatch);
+
 
             player = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
             player2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
@@ -109,13 +114,11 @@ namespace Game_Examen
             {
                 menu.gameover();
             }
-                gamescreen.update(menu.screen);
-
             if (gameOver.selection == 1)
             {
                 player = reset1;
                 player2 = reset2;
-
+                tagger.reset();
                 gameOver.selection = 0;
                 gameState.gameover = false;
                 menu.screen = 1;
@@ -123,7 +126,7 @@ namespace Game_Examen
                 //player2.reset();
                 //gamescreen.update(1);
             }
-            if(gameOver.selection == 2)
+            if (gameOver.selection == 2)
             {
                 player = reset1;
                 player2 = reset2;
@@ -133,7 +136,7 @@ namespace Game_Examen
                 menu.screen = 0;
             }
 
-            
+
             if (gamescreen.startscreen)
                 menu.update();
 
@@ -141,16 +144,20 @@ namespace Game_Examen
             {
                 player.Update(gameTime);
                 player2.Update(gameTime);
-                gameState.update(player.alive, player2.alive, player.playerRectangle, player2.playerRectangle);
+                gameState.update(player.alive, player2.alive, player.playerRectangle, player2.playerRectangle,tagger.ownedP1,tagger.ownedP2);
             }
-            if(gamescreen.gameoverscreen)
+            if (gamescreen.gameoverscreen)
             {
                 player.deadframesdone(gameTime);
                 player2.deadframesdone(gameTime);
                 gameOver.update();
             }
-            if (menu.screen == 2||gameOver.selection==2)
+            if (menu.screen == 2 || gameOver.selection == 2)
                 this.Exit();
+
+            gamescreen.update(menu.screen);
+            tagger.update(player.playerRectangle, player2.playerRectangle);
+
             base.Update(gameTime);
         }
 
@@ -188,14 +195,15 @@ namespace Game_Examen
             if (gamescreen.startscreen)
                 menu.Draw(spriteBatch);
 
-            if(gamescreen.gameoverscreen)
+            if (gamescreen.gameoverscreen)
             {
                 player.Draw(spriteBatch);
                 player2.Draw(spriteBatch);
-                gameOver.Draw(spriteBatch,gameState.winner);
+                gameOver.Draw(spriteBatch, gameState.winner);
             }
 
             spriteBatch.DrawString(font, player._positionalt.ToString(), new Vector2(100, 100), Color.Pink);
+            tagger.draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

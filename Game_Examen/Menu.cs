@@ -10,7 +10,7 @@ namespace Game_Examen
 {
     class Menu
     {
-        Vector2[] positions =
+        private Vector2[] _positions =
         {
             new Vector2(300,200),
             new Vector2(300,300),
@@ -44,7 +44,7 @@ namespace Game_Examen
             spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 600), Color.White);
             spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 700), Color.White);
 
-            spriteBatch.DrawString(font, ">", positions[pos], Color.White);
+            spriteBatch.DrawString(font, ">", _positions[pos], Color.White);
         }
         public void gameover()
         {
@@ -82,7 +82,6 @@ namespace Game_Examen
             /*
     if (controls.left)
     if (controls.right)
-
     if (controls.back)
     */
         }
