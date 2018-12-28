@@ -65,7 +65,7 @@ namespace Game_Examen
         }
         public void draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle(_crownrect.X, _crownrect.Y-20, 20, 20), Color.AliceBlue);
+            spriteBatch.Draw(texture, new Rectangle(_crownrect.X, _crownrect.Y-40, 20, 20), Color.AliceBlue);
         }
     }
 }

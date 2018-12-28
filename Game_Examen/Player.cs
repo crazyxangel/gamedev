@@ -27,13 +27,13 @@ namespace Game_Examen
         private bool _lastjump = false;
 
         public int _position_left = 400;
-        public int _positionalt = 120;
+        public int _positionalt = 900;
 
         private int _acceleration;
         private int _accelerationjump;
         private int _deadframes;
 
-        private int jumpheight = 13;
+        private int jumpheight = 15;
         private int speed = 6;
 
         private Rectangle _showRectangle;
@@ -77,12 +77,12 @@ namespace Game_Examen
 
             if (player == 1)
             {
-                _position_left = 120;
+                _position_left = 0;
                 _controls = new ControlP1();
             }
             if (player == 2)
             {
-                _position_left = 1740;
+                _position_left = 1860;
                 _controls = new ControlP2();
                 _right = false;
                 _left = true;
@@ -213,7 +213,7 @@ namespace Game_Examen
         public bool _collision_left()
         {
             _cLeft = false;
-            __collision_left = new Rectangle(_position_left + 10, _positionalt, 10, 30);
+            __collision_left = new Rectangle(_position_left + 10, _positionalt+5, 10, 50);
             foreach (Rectangle item in _collision)
             {
                 if (item.Intersects(__collision_left))
@@ -228,7 +228,7 @@ namespace Game_Examen
         public bool _collision_right()
         {
             _cRight = false;
-            __collision_right = new Rectangle(_position_left + 40, _positionalt, 10, 30);
+            __collision_right = new Rectangle(_position_left + 40, _positionalt+5, 10, 50);
             foreach (Rectangle item in _collision)
             {
                 if (item.Intersects(__collision_right))
@@ -244,7 +244,7 @@ namespace Game_Examen
         public bool _collisionup()
         {
             _cUp = false;
-            __collisionup = new Rectangle(_position_left + 20, _positionalt - 10, 20, 10);
+            __collisionup = new Rectangle(_position_left + 15, _positionalt - 10, 30, 10);
             foreach (Rectangle item in _collision)
             {
                 if (item.Intersects(__collisionup))
@@ -259,7 +259,7 @@ namespace Game_Examen
         public bool _collisiondown()
         {
             _cDown = false;
-            __collisiondown = new Rectangle(_position_left + 20, _positionalt + 55, 20, 5);
+            __collisiondown = new Rectangle(_position_left + 15, _positionalt + 58, 30, 5);
             foreach (Rectangle item in _collision)
             {
                 if (item.Intersects(__collisiondown))
@@ -277,7 +277,7 @@ namespace Game_Examen
 
         public bool amIalive()
         {
-            playerRectangle = new Rectangle(_position_left + 20, _positionalt, 20, 60);
+            playerRectangle = new Rectangle(_position_left + 20, _positionalt+20, 20, 40);
             foreach (Rectangle item in _collisionLethal)
             {
                 if (item.Intersects(playerRectangle))
@@ -295,6 +295,8 @@ namespace Game_Examen
             if (amIalive())
             {
                 _controls.Update();
+				if (_collisionup())
+					_accelerationjump = 0;
                 if (!_collisiondown() && !_jump)
                 {
                     _positionalt += 1 * _acceleration;

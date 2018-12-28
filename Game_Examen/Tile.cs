@@ -20,8 +20,12 @@ namespace Game_Examen
 		public Vector2 Position { get; set; }
 		public bool Collision { get; set; }
 		public bool lethal { get; set; }
-		public void Draw(SpriteBatch spriteBatch)
+	 /*	public bool portal { get; set; }
+		public Rectangle Portalcollision { get; set; }
+		public int portal_pair { get; set; }*/
+		public virtual void Draw(SpriteBatch spriteBatch)
 		{
+			SpriteEffects s = SpriteEffects.FlipHorizontally;
 			spriteBatch.Draw(Texture, Position, _showRectangle, Color.AliceBlue);
 		}
 
@@ -105,11 +109,24 @@ namespace Game_Examen
 			lethal = true;
 			Texture = texture;
 			Position = new Vector2(x, y);
-			CollisionRect = new Rectangle(x, y+30, 60, 30);
-			CollisionLethal = new Rectangle(x, y+15, 60, 60);
+			CollisionRect = new Rectangle(x, y + 40, 60, 20);
+			CollisionLethal = new Rectangle(x, y + 15, 60, 60);
 			_showRectangle = new Rectangle(360, 0, 60, 60);
 		}
-		
+
+	}
+	public class Spikeflip : Tile
+	{
+		public Spikeflip(Texture2D texture, int x, int y)
+		{
+			Collision = true;
+			lethal = true;
+			Texture = texture;
+			Position = new Vector2(x, y);
+			CollisionRect = new Rectangle(x+1, y, 58, 20);
+			CollisionLethal = new Rectangle(x+5, y+15, 45, 40);
+			_showRectangle = new Rectangle(480, 0, 60, 60);
+		}
 	}
 	public class Acid : Tile
 	{
@@ -120,9 +137,20 @@ namespace Game_Examen
 			Texture = texture;
 			Position = new Vector2(x, y);
 			CollisionLethal = new Rectangle(x, y + 20, 60, 40);
-            CollisionRect = new Rectangle(x, y + 58, 60, 2);
-            _showRectangle = new Rectangle(420, 0, 60, 60);
+			CollisionRect = new Rectangle(x, y + 58, 60, 2);
+			_showRectangle = new Rectangle(420, 0, 60, 60);
 		}
 
 	}
+/*	public class Portal : Tile
+	{
+		public Portal(Texture2D texture, int x, int y)
+		{
+			portal = true;
+			Texture = texture;
+			Position = new Vector2(x, y);
+			Portalcollision = new Rectangle(x, y, 60, 60);
+			_showRectangle = new Rectangle(540, 0, 60, 60);
+		}
+	}*/
 }
