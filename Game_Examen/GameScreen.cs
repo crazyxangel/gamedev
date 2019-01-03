@@ -9,25 +9,32 @@ using System.Threading.Tasks;
 namespace Game_Examen
 {
     class GameScreen
-    {
-        public bool startscreen { get; set; }
+	{
+		#region variables and objects
+		public bool startscreen { get; set; }
         public bool playscreen { get; set; }
         public bool gameoverscreen{ get; set; }
         public int level { get; set; }
-        
+		#endregion
 
-
-        public GameScreen()
+		/// <summary>
+		/// sets the startscreen to true 
+		/// </summary>
+		public GameScreen()
         {
             startscreen = true;
         }
+
+		/// <summary>
+		/// Sets the right screen to true depending ont the selection
+		/// </summary>
+		/// <param name="screen"></param>
         public void update(int screen)
         {
 
             startscreen = false;
             playscreen = false;
             gameoverscreen = false;
-            //gameoverscreen = false;
             switch (screen)
             {
                 case 0:

@@ -9,7 +9,8 @@ namespace Game_Examen
     /// </summary>
     public class Game1 : Game
     {
-        private GraphicsDeviceManager graphics;
+		#region Variables and objects
+		private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private Texture2D tilesTexture;
         private Texture2D heroTexture;
@@ -26,8 +27,9 @@ namespace Game_Examen
         private GameOver gameOver;
         private Level level1;
         private GameState gameState;
+		#endregion
 
-        public Game1()
+		public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -59,15 +61,20 @@ namespace Game_Examen
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            heroTexture = Content.Load<Texture2D>("Hero");
+			// TODO: use this.Content to load your game content here
+
+			//Loading the textures
+			#region textures
+			heroTexture = Content.Load<Texture2D>("Hero");
             hero2Texture = Content.Load<Texture2D>("Hero2");
             tilesTexture = Content.Load<Texture2D>("tiles");
             tagcrown = Content.Load<Texture2D>("crown");
             font = Content.Load<SpriteFont>("Font");
+			#endregion
 
-            tagger = new Tagger(tagcrown);
-
+			//creating new objects
+			#region objects
+			tagger = new Tagger(tagcrown);
             level1 = new Level(tilesTexture);
             level1.CreateLevel();
             gamescreen = new GameScreen();
@@ -77,19 +84,20 @@ namespace Game_Examen
             gameOver = new GameOver(font, spriteBatch);
             menu = new Menu(font, spriteBatch);
 
-
+			//Creates 2 players and 2 blank copies of that player for reset purposes
             player = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
             player2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
             reset1 = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
             reset2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
+			#endregion
 
-        }
+		}
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
-        /// </summary>
-        protected override void UnloadContent()
+		/// <summary>
+		/// UnloadContent will be called once per game and is the place to unload
+		/// game-specific content.
+		/// </summary>
+		protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
         }
@@ -104,6 +112,7 @@ namespace Game_Examen
 
             reset1 = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
             reset2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
+			
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit();
@@ -111,33 +120,32 @@ namespace Game_Examen
 
             // TODO: Add your update logic here
             if (gameState.gameover)
-            {
                 menu.gameover();
-            }
-            if (gameOver.selection == 1)
-            {
-                player = reset1;
-                player2 = reset2;
-                tagger.reset();
-                gameOver.selection = 0;
-                gameState.gameover = false;
-                menu.screen = 1;
-                //player.reset();
-                //player2.reset();
-                //gamescreen.update(1);
-            }
-            if (gameOver.selection == 2)
-            {
-                player = reset1;
-                player2 = reset2;
 
-                gameOver.selection = 0;
-                gameState.gameover = false;
-                menu.screen = 0;
-            }
+			//Game over menu selection switch
+			switch (gameOver.selection)
+			{
+				case 1:
+					player = reset1;
+					player2 = reset2;
+					tagger.reset();
+					gameOver.selection = 0;
+					gameState.gameover = false;
+					menu.screen = 1;
+					break;
+				case 2:
+					player = reset1;
+					player2 = reset2;
 
+					gameOver.selection = 0;
+					gameState.gameover = false;
+					menu.screen = 0;
+					break;
+			}
 
-            if (gamescreen.startscreen)
+			//Region for gamescreen related logic
+			#region gamescreen
+			if (gamescreen.startscreen)
                 menu.update();
 
             if (gamescreen.playscreen)
@@ -154,8 +162,11 @@ namespace Game_Examen
             }
             if (menu.screen == 2 || gameOver.selection == 2)
                 this.Exit();
+			#endregion
 
-            gamescreen.update(menu.screen);
+			gamescreen.update(menu.screen);
+
+			//updates the tagger class with the 2 player rectangles
             tagger.update(player.playerRectangle, player2.playerRectangle);
 
             base.Update(gameTime);
@@ -167,26 +178,15 @@ namespace Game_Examen
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
+			//set black background for in menus
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
-            // TODO: Add your drawing code here
+			// TODO: Add your drawing code here
 
-            /*switch (gamescreen.level)
-            {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-            }*/
-            if (gamescreen.playscreen)
+			//Region for drawing depending on gamescreen
+			#region gamescreen
+			if (gamescreen.playscreen)
             {
                 level1.DrawLevel(spriteBatch);
                 player.Draw(spriteBatch);
@@ -201,8 +201,9 @@ namespace Game_Examen
                 player2.Draw(spriteBatch);
                 gameOver.Draw(spriteBatch, gameState.winner);
             }
+			#endregion
 
-            spriteBatch.DrawString(font, player._positionalt.ToString(), new Vector2(100, 100), Color.Pink);
+			//draws tagger crown
             tagger.draw(spriteBatch);
             spriteBatch.End();
 

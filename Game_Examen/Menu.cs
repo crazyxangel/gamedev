@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 namespace Game_Examen
 {
     class Menu
-    {
-        private Vector2[] _positions =
+	{
+		#region variables and objects
+		private Vector2[] _positions =
         {
             new Vector2(300,200),
             new Vector2(300,300),
@@ -29,12 +30,23 @@ namespace Game_Examen
 
         private bool lastpressup = false;
         private bool lastpressdown = false;
+		#endregion
 
-        public Menu(SpriteFont f, SpriteBatch Batch)
+		/// <summary>
+		/// Constructor of menu requires a spritefond and the spritebatch
+		/// </summary>
+		/// <param name="f"></param>
+		/// <param name="Batch"></param>
+		public Menu(SpriteFont f, SpriteBatch Batch)
         {
             spriteBatch = Batch;
             font = f;controls = new ControlScreens();
         }
+
+		/// <summary>
+		/// draws the main menu
+		/// </summary>
+		/// <param name="spriteBatch"></param>
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(font, "play", new Vector2(320, 200), Color.White);
@@ -46,10 +58,16 @@ namespace Game_Examen
 
             spriteBatch.DrawString(font, ">", _positions[pos], Color.White);
         }
+		/// <summary>
+		/// sets the screen variable to the gameover value
+		/// </summary>
         public void gameover()
         {
             screen = 10;
         }
+		/// <summary>
+		/// updates menu depending on the controls
+		/// </summary>
         public void update()
         {
             controls.Update();

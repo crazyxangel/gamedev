@@ -9,14 +9,24 @@ namespace Game_Examen
 {
     public abstract class Controls
     {
-        public bool left { get; set; }
+		#region variables
+		public bool left { get; set; }
         public bool right { get; set; }
         public bool up { get; set; }
         public bool down { get; set; }
-        public abstract void Update();
+		#endregion
+		public abstract void Update();
     }
+
+
+	/// <summary>
+	/// Abstract class controls for player 1
+	/// </summary>
     public class ControlP1 : Controls
     {
+		/// <summary>
+		/// Updates the controlls
+		/// </summary>
         public override void Update()
         {
             KeyboardState stateKey = Keyboard.GetState();
@@ -28,9 +38,17 @@ namespace Game_Examen
 
         }
     }
-    public class ControlP2 : Controls
-    {
-        public override void Update()
+
+
+	/// <summary>
+	///  Abstract class controls for player 2
+	/// </summary>
+	public class ControlP2 : Controls
+	{
+		/// <summary>
+		/// Updates the controlls
+		/// </summary>
+		public override void Update()
         {
             KeyboardState stateKey = Keyboard.GetState();
 
@@ -41,11 +59,22 @@ namespace Game_Examen
 
         }
     }
-    public class ControlScreens : Controls
-    {
-        public bool select { get; set; }
+
+
+	/// <summary>
+	///  Abstract class controls for menu
+	/// </summary>
+	public class ControlScreens : Controls
+	{
+		#region variables
+		public bool select { get; set; }
         public bool back { get; set; }
-        public override void Update()
+		#endregion
+
+		/// <summary>
+		/// Updates the controlls
+		/// </summary>
+		public override void Update()
         {
             KeyboardState stateKey = Keyboard.GetState();
 

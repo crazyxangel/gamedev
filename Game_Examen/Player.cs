@@ -11,8 +11,8 @@ namespace Game_Examen
 {
     public class Player
     {
-
-        public Vector2 Position { get; set; }
+		#region variables and objects
+		public Vector2 Position { get; set; }
         public Texture2D Texture { get; set; }
         public TimeSpan Duration { get; set; }
         public bool alive { get; set; }
@@ -58,14 +58,16 @@ namespace Game_Examen
         private Controls _controls;
         private List<Rectangle> _collision = new List<Rectangle>();
         private List<Rectangle> _collisionLethal = new List<Rectangle>();
-        /// <summary>
-        /// Hierin worden de animaties aangemaakt
-        /// </summary>
-        /// <param name="texture"></param>
-        /// <param name="player"></param>
-        /// <param name="_collisionList"></param>
-        /// <param name="lethalList"></param>
-        public Player(Texture2D texture, int player, List<Rectangle> _collisionList, List<Rectangle> lethalList)
+		#endregion
+		/// <summary>
+		/// Constructor requires the texture, wether or not its player 1 or 2, and a list of collisions and lethalcollisions and sets the controls to the right player
+		/// </summary>
+		/// <param name="texture"></param>
+		/// <param name="player"></param>
+		/// <param name="_collisionList"></param>
+		/// <param name="lethalList"></param>
+		/// 
+		public Player(Texture2D texture, int player, List<Rectangle> _collisionList, List<Rectangle> lethalList)
         {
             _collision = _collisionList;
             _collision.ToArray();
@@ -87,8 +89,10 @@ namespace Game_Examen
                 _right = false;
                 _left = true;
             }
-            #region Animation _left
-            _animation_left = new Animation();
+
+			#region animations
+			#region Animation _left
+			_animation_left = new Animation();
             _animation_left.AddFrame(new Rectangle(0, 120, 60, 60));
             _animation_left.AddFrame(new Rectangle(60, 120, 60, 60));
             _animation_left.AddFrame(new Rectangle(120, 120, 60, 60));
@@ -169,9 +173,10 @@ namespace Game_Examen
             _idleframeL = new Rectangle(60, 240, 60, 60);
             _idleframeR = new Rectangle(0, 240, 60, 60);
             _showRectangle = new Rectangle(0, 0, 60, 60);
-        }
+			#endregion
+		}
 
-        public virtual void Update(GameTime gameTime)
+		public virtual void Update(GameTime gameTime)
         {
             movement(gameTime);
         }
@@ -207,7 +212,7 @@ namespace Game_Examen
 
         #region Collision
         /// <summary>
-        /// Here we'll check if the	_left side of the robot makes _collision with anything
+        /// Here we'll check if the	_left side of the robot has collision with anything
         /// </summary>
         /// <returns></returns>
         public bool _collision_left()
@@ -222,7 +227,7 @@ namespace Game_Examen
             return _cLeft;
         }
         /// <summary>
-        /// Here we'll check if the _right side of the robot makes _collision with anything
+        /// Here we'll check if the _right side of the robot has collision with anything
         /// </summary>
         /// <returns></returns>
         public bool _collision_right()
@@ -237,8 +242,10 @@ namespace Game_Examen
             return _cRight;
 
         }
+
+
         /// <summary>
-        /// Here we'll check if the top of the robot makes _collision with anything
+        /// Here we'll check if the top of the robot has collision with anything
         /// </summary>
         /// <returns></returns>
         public bool _collisionup()
@@ -252,8 +259,10 @@ namespace Game_Examen
             }
             return _cUp;
         }
+
+
         /// <summary>
-        /// Here we'll check if the bottom of the robot makes _collision with anything
+        /// Here we'll check if the bottom of the robot has collision with anything
         /// </summary>
         /// <returns></returns>
         public bool _collisiondown()
@@ -271,10 +280,9 @@ namespace Game_Examen
             return _cDown;
         }
         /// <summary>
-        /// Here we'll check if the robot makes _collision with a deadly object
+        /// Here we'll check if the robot has collision with a deadly object
         /// </summary>
         /// <returns></returns>
-
         public bool amIalive()
         {
             playerRectangle = new Rectangle(_position_left + 20, _positionalt+20, 20, 40);
@@ -288,6 +296,10 @@ namespace Game_Examen
 
         #endregion
 
+		/// <summary>
+		/// updates the movement depending on the controls and collisions
+		/// </summary>
+		/// <param name="gameTime"></param>
         public void movement(GameTime gameTime)
 
         {
@@ -381,6 +393,11 @@ namespace Game_Examen
             }
             
         }
+
+		/// <summary>
+		/// method that allows the dead animation to play after game over
+		/// </summary>
+		/// <param name="gameTime"></param>
         public void deadframesdone(GameTime gameTime)
         {
 

@@ -9,14 +9,15 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Game_Examen
 {
     class GameOver
-    {
-        Vector2[] positions =
+	{
+		#region variables and objects
+		Vector2[] positions =
         {
             new Vector2(500,500),
             new Vector2(700,500)
         };
 
-        private bool lastpressleft = false;
+		private bool lastpressleft = false;
         private bool lastpressright = false;
 
         private int pos = 0;
@@ -25,12 +26,18 @@ namespace Game_Examen
         SpriteBatch spriteBatch;
         SpriteFont font;
         ControlScreens controls;
-        public GameOver(SpriteFont f, SpriteBatch Batch)
+		#endregion
+		public GameOver(SpriteFont f, SpriteBatch Batch)
         {
             spriteBatch = Batch;
             font = f; controls = new ControlScreens();
         }
 
+		/// <summary>
+		/// Displays the winner and the game over menu
+		/// </summary>
+		/// <param name="spriteBatch"></param>
+		/// <param name="winner"></param>
         public void Draw(SpriteBatch spriteBatch,string winner)
         {
             spriteBatch.DrawString(font, winner, new Vector2(560, 400), Color.White);
@@ -39,6 +46,10 @@ namespace Game_Examen
 
             spriteBatch.DrawString(font, ">", positions[pos], Color.White);
         }
+
+		/// <summary>
+		/// Updates the menu based on the controls
+		/// </summary>
         public void update()
         {
             controls.Update();
