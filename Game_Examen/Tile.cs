@@ -12,6 +12,7 @@ namespace Game_Examen
 {
 	public abstract class Tile
 	{
+		#region variables and objects
 		public Rectangle CollisionRect { get; set; }
 		public Rectangle CollisionLethal { get; set; }
 		public Rectangle LethalRect { get; set; }
@@ -20,9 +21,12 @@ namespace Game_Examen
 		public Vector2 Position { get; set; }
 		public bool Collision { get; set; }
 		public bool lethal { get; set; }
-	 /*	public bool portal { get; set; }
-		public Rectangle Portalcollision { get; set; }
-		public int portal_pair { get; set; }*/
+		#endregion
+
+		/// <summary>
+		/// draws the individual tiles
+		/// </summary>
+		/// <param name="spriteBatch"></param>
 		public virtual void Draw(SpriteBatch spriteBatch)
 		{
 			SpriteEffects s = SpriteEffects.FlipHorizontally;
@@ -30,6 +34,11 @@ namespace Game_Examen
 		}
 
 	}
+
+
+	/// <summary>
+	/// background tile
+	/// </summary>
 	public class BackgroundTile : Tile
 	{
 		public BackgroundTile(Texture2D texture, int x, int y)
@@ -41,7 +50,12 @@ namespace Game_Examen
 			_showRectangle = new Rectangle(300, 0, 60, 60);
 		}
 	}
-    public class Solidtop : Tile
+
+
+	/// <summary>
+	/// Tile with a solid top
+	/// </summary>
+	public class Solidtop : Tile
     {
         public Solidtop(Texture2D texture, int x, int y)
         {
@@ -52,8 +66,13 @@ namespace Game_Examen
             CollisionRect = new Rectangle(x, y, 60, 12);
             _showRectangle = new Rectangle(60, 0, 60, 60);
         }
-    }
-    public class SolidtopL : Tile
+	}
+
+
+	/// <summary>
+	/// Tile with a solid top and left side
+	/// </summary>
+	public class SolidtopL : Tile
     {
         public SolidtopL(Texture2D texture, int x, int y)
         {
@@ -64,8 +83,13 @@ namespace Game_Examen
             CollisionRect = new Rectangle(x, y, 60, 12);
             _showRectangle = new Rectangle(180, 0, 60, 60);
         }
-    }
-    public class SolidtopR : Tile
+	}
+
+
+	/// <summary>
+	/// Tile with a solid top and right side
+	/// </summary>
+	public class SolidtopR : Tile
     {
         public SolidtopR(Texture2D texture, int x, int y)
         {
@@ -77,7 +101,12 @@ namespace Game_Examen
             _showRectangle = new Rectangle(240, 0, 60, 60);
         }
     }
-    public class Solidleft : Tile
+
+
+	/// <summary>
+	/// Tile with a solid left side
+	/// </summary>
+	public class Solidleft : Tile
 	{
 		public Solidleft(Texture2D texture, int x, int y)
 		{
@@ -89,6 +118,12 @@ namespace Game_Examen
 			_showRectangle = new Rectangle(0, 0, 60, 60);
 		}
 	}
+
+
+
+	/// <summary>
+	/// Tile with a solid right side
+	/// </summary>
 	public class Solidright : Tile
 	{
 		public Solidright(Texture2D texture, int x, int y)
@@ -101,6 +136,12 @@ namespace Game_Examen
 			_showRectangle = new Rectangle(120, 0, 60, 60);
 		}
 	}
+
+
+
+	/// <summary>
+	/// Spike
+	/// </summary>
 	public class Spike : Tile
 	{
 		public Spike(Texture2D texture, int x, int y)
@@ -115,6 +156,12 @@ namespace Game_Examen
 		}
 
 	}
+
+
+
+	/// <summary>
+	/// Spike flipped 180°
+	/// </summary>
 	public class Spikeflip : Tile
 	{
 		public Spikeflip(Texture2D texture, int x, int y)
@@ -128,6 +175,12 @@ namespace Game_Examen
 			_showRectangle = new Rectangle(480, 0, 60, 60);
 		}
 	}
+
+
+
+	/// <summary>
+	/// Acid tiles
+	/// </summary>
 	public class Acid : Tile
 	{
 		public Acid(Texture2D texture, int x, int y)
@@ -142,15 +195,4 @@ namespace Game_Examen
 		}
 
 	}
-/*	public class Portal : Tile
-	{
-		public Portal(Texture2D texture, int x, int y)
-		{
-			portal = true;
-			Texture = texture;
-			Position = new Vector2(x, y);
-			Portalcollision = new Rectangle(x, y, 60, 60);
-			_showRectangle = new Rectangle(540, 0, 60, 60);
-		}
-	}*/
 }

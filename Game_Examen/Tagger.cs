@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 namespace Game_Examen
 {
     class Tagger
-    {
-        private int _positionX;
+	{
+		#region variables and objects
+		private int _positionX;
         private int _positionY;
 
         private Rectangle _crownrect;
@@ -20,24 +21,28 @@ namespace Game_Examen
         public bool ownedP1 { get; set; }
         public bool ownedP2 { get; set; }
 
-        /*private Vector2[] _positions =
-         {
-            new Vector2(300,200),
-            new Vector2(300,300),
-            new Vector2(300,400),
-            new Vector2(300,500),
-            new Vector2(300,600),
-            new Vector2(300,700)
-        };*/
-
         Texture2D texture;
-        public Tagger(Texture2D t)
+		#endregion
+
+
+		/// <summary>
+		/// sets the crown starting position and texture
+		/// </summary>
+		/// <param name="t"></param>
+		public Tagger(Texture2D t)
         {
             texture = t;
             _positionY = 60;//  |||
             _positionX = 950;//  ___
             _crownrect = new Rectangle(_positionX, _positionY, 20, 20);
         }
+
+
+		/// <summary>
+		/// Updates the game with both player rectangles to see if they touch the crown, and if they do to follow the player
+		/// </summary>
+		/// <param name="p1"></param>
+		/// <param name="p2"></param>
         public void update(Rectangle p1, Rectangle p2)
         {
             _P1 = p1;
@@ -55,6 +60,11 @@ namespace Game_Examen
             if (ownedP2)
                 _crownrect = new Rectangle(p2.X, p2.Y, 20, 20);
         }
+
+
+		/// <summary>
+		/// resets the crown
+		/// </summary>
         public void reset()
         {
             _positionY = 60;
@@ -63,6 +73,12 @@ namespace Game_Examen
             ownedP2 = false;
             _crownrect = new Rectangle(_positionX, _positionY, 20, 20);
         }
+
+
+		/// <summary>
+		/// draws the crown
+		/// </summary>
+		/// <param name="spriteBatch"></param>
         public void draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle(_crownrect.X, _crownrect.Y-40, 20, 20), Color.AliceBlue);
