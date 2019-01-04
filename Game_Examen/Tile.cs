@@ -14,6 +14,7 @@ namespace Game_Examen
 	{
 		#region variables and objects
 		public Rectangle CollisionRect { get; set; }
+		public Rectangle CollisionRect2 { get; set; }
 		public Rectangle CollisionLethal { get; set; }
 		public Rectangle LethalRect { get; set; }
 		public Rectangle _showRectangle { get; set; }
@@ -29,7 +30,6 @@ namespace Game_Examen
 		/// <param name="spriteBatch"></param>
 		public virtual void Draw(SpriteBatch spriteBatch)
 		{
-			SpriteEffects s = SpriteEffects.FlipHorizontally;
 			spriteBatch.Draw(Texture, Position, _showRectangle, Color.AliceBlue);
 		}
 
@@ -81,7 +81,8 @@ namespace Game_Examen
             Texture = texture;
             Position = new Vector2(x, y);
             CollisionRect = new Rectangle(x, y, 60, 12);
-            _showRectangle = new Rectangle(180, 0, 60, 60);
+			CollisionRect2 = new Rectangle(x, y, 5, 60);
+			_showRectangle = new Rectangle(180, 0, 60, 60);
         }
 	}
 
@@ -97,8 +98,9 @@ namespace Game_Examen
             lethal = false;
             Texture = texture;
             Position = new Vector2(x, y);
-            CollisionRect = new Rectangle(x, y, 60, 12);
-            _showRectangle = new Rectangle(240, 0, 60, 60);
+			CollisionRect = new Rectangle(x, y, 60, 12);
+			CollisionRect2 = new Rectangle(x+55, y, 5, 60);
+			_showRectangle = new Rectangle(240, 0, 60, 60);
         }
     }
 
@@ -114,7 +116,7 @@ namespace Game_Examen
 			lethal = false;
 			Texture = texture;
 			Position = new Vector2(x, y);
-			CollisionRect = new Rectangle(x, y, 12, 60);
+			CollisionRect = new Rectangle(x, y, 15, 60);
 			_showRectangle = new Rectangle(0, 0, 60, 60);
 		}
 	}
@@ -132,7 +134,7 @@ namespace Game_Examen
 			lethal = false;
 			Texture = texture;
 			Position = new Vector2(x, y);
-			CollisionRect = new Rectangle(x + 48, y, 12, 60);
+			CollisionRect = new Rectangle(x + 45, y, 15, 60);
 			_showRectangle = new Rectangle(120, 0, 60, 60);
 		}
 	}

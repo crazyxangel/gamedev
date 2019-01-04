@@ -12,7 +12,8 @@ namespace Game_Examen
 	{
 		#region variables and objects
 		public bool startscreen { get; set; }
-        public bool playscreen { get; set; }
+		public bool refstartscreen { get; set; }
+		public bool playscreen { get; set; }
         public bool gameoverscreen{ get; set; }
         public int level { get; set; }
 		#endregion
@@ -38,8 +39,9 @@ namespace Game_Examen
             switch (screen)
             {
                 case 0:
-                    startscreen = true;
-                    break;
+					startscreen = true;
+					refstartscreen = true;
+					break;
 
                 case 1:
                     playscreen = true;

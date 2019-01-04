@@ -26,8 +26,8 @@ namespace Game_Examen
         private bool _jump = false;
         private bool _lastjump = false;
 
-        public int _position_left = 400;
-        public int _positionalt = 900;
+		private int _position_left;
+        private int _positionalt = 80;
 
         private int _acceleration;
         private int _accelerationjump;
@@ -67,7 +67,7 @@ namespace Game_Examen
 		/// <param name="_collisionList"></param>
 		/// <param name="lethalList"></param>
 		/// 
-		public Player(Texture2D texture, int player, List<Rectangle> _collisionList, List<Rectangle> lethalList)
+		public Player(Texture2D texture, int player,int level, List<Rectangle> _collisionList, List<Rectangle> lethalList)
         {
             _collision = _collisionList;
             _collision.ToArray();
@@ -76,8 +76,11 @@ namespace Game_Examen
             alive = true;
             _accelerationjump = jumpheight;
             _acceleration = 1;
-
-            if (player == 1)
+			if (level == 1)
+				_positionalt = 860;
+			if (level == 2)
+				_positionalt = 80;
+			if (player == 1)
             {
                 _position_left = 0;
                 _controls = new ControlP1();
@@ -251,7 +254,7 @@ namespace Game_Examen
         public bool _collisionup()
         {
             _cUp = false;
-            __collisionup = new Rectangle(_position_left + 15, _positionalt - 10, 30, 10);
+            __collisionup = new Rectangle(_position_left + 17, _positionalt - 10, 27, 10);
             foreach (Rectangle item in _collision)
             {
                 if (item.Intersects(__collisionup))
@@ -268,7 +271,7 @@ namespace Game_Examen
         public bool _collisiondown()
         {
             _cDown = false;
-            __collisiondown = new Rectangle(_position_left + 15, _positionalt + 58, 30, 5);
+            __collisiondown = new Rectangle(_position_left + 17, _positionalt + 58, 27, 5);
             foreach (Rectangle item in _collision)
             {
                 if (item.Intersects(__collisiondown))

@@ -41,7 +41,7 @@ namespace Game_Examen
         public void Draw(SpriteBatch spriteBatch,string winner)
         {
             spriteBatch.DrawString(font, winner, new Vector2(560, 400), Color.White);
-            spriteBatch.DrawString(font, "Restart", new Vector2(560, 500), Color.White);
+            spriteBatch.DrawString(font, "Menu", new Vector2(560, 500), Color.White);
             spriteBatch.DrawString(font, "Exit", new Vector2(760, 500), Color.White);
 
             spriteBatch.DrawString(font, ">", positions[pos], Color.White);

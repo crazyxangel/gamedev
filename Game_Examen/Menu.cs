@@ -22,14 +22,19 @@ namespace Game_Examen
         };
 
         int pos = 0;
-        public int screen { get; set; }
-
-        private SpriteBatch spriteBatch;
+		public int screen { get; set; }
+		public int level { get; set; }
+		public bool createlevel { get; set; }
+		public bool refselect { get; set; }
+		private SpriteBatch spriteBatch;
         private ControlScreens controls;
         private SpriteFont font;
 
-        private bool lastpressup = false;
-        private bool lastpressdown = false;
+
+		private bool lastpressup = false;
+		private bool lastpressdown = false;
+		private bool lastpressleft = false;
+		private bool lastpressright = false;
 		#endregion
 
 		/// <summary>
@@ -39,8 +44,10 @@ namespace Game_Examen
 		/// <param name="Batch"></param>
 		public Menu(SpriteFont f, SpriteBatch Batch)
         {
+			level = 1;
             spriteBatch = Batch;
-            font = f;controls = new ControlScreens();
+            font = f;
+			controls = new ControlScreens();
         }
 
 		/// <summary>
@@ -50,11 +57,11 @@ namespace Game_Examen
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(font, "play", new Vector2(320, 200), Color.White);
-            spriteBatch.DrawString(font, "Exit", new Vector2(320, 300), Color.White);
-            spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 400), Color.White);
-            spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 500), Color.White);
+            spriteBatch.DrawString(font, "level " + level + "use Q and D", new Vector2(320, 300), Color.White);
+			spriteBatch.DrawString(font, "Exit", new Vector2(320, 400), Color.White);
+			spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 500), Color.White);
             spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 600), Color.White);
-            spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 700), Color.White);
+            spriteBatch.DrawString(font, "Navigate with Z and S select with Enter", new Vector2(320, 700), Color.White);
 
             spriteBatch.DrawString(font, ">", _positions[pos], Color.White);
         }
@@ -71,37 +78,54 @@ namespace Game_Examen
         public void update()
         {
             controls.Update();
-
-
+			if (!controls.select)
+				refselect = false;
+			if (controls.select && pos == 0 && !refselect)
+			{
+				createlevel = true;
+			}
             if (controls.up && !lastpressup)
             {
                 lastpressup = true;
                 pos--;
             }
-            if (!controls.up)
-                lastpressup = false;
-
             if (controls.down && !lastpressdown)
             {
                 lastpressdown = true;
                 pos++;
             }
-            if (!controls.down)
-                lastpressdown = false;
+            
+			if (controls.left && !lastpressleft && pos==1)
+			{
+				lastpressleft = true;
+				level--;
+			}
+			if (controls.right && !lastpressright&&pos==1)
+			{
+				lastpressright = true;
+				level++;
+			}
+			if (!controls.down)
+				lastpressdown = false;
+			if (!controls.up)
+				lastpressup = false;
+			if (!controls.left)
+				lastpressleft = false;
+			if (!controls.right)
+				lastpressright = false;
 
 
-            if (pos == 6)
+			if (pos == 6)
                 pos = 0;
             if (pos == -1)
                 pos = 5;
+			if (level == 3)
+				level = 1;
+			if (level == 0)
+				level = 2;
 
-            if (controls.select)
+            if (controls.select && !refselect&&(pos == 0||pos == 2))
                 screen = pos+1;
-            /*
-    if (controls.left)
-    if (controls.right)
-    if (controls.back)
-    */
         }
     }
 }

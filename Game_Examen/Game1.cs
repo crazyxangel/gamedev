@@ -25,8 +25,8 @@ namespace Game_Examen
         private Tagger tagger;
         private Menu menu;
         private GameOver gameOver;
-        private Level level1;
-        private GameState gameState;
+		private Level level1;
+		private GameState gameState;
 		#endregion
 
 		public Game1()
@@ -76,19 +76,18 @@ namespace Game_Examen
 			#region objects
 			tagger = new Tagger(tagcrown);
             level1 = new Level(tilesTexture);
-            level1.CreateLevel();
             gamescreen = new GameScreen();
             gamescreen.startscreen = true;
             gameState = new GameState();
 
-            gameOver = new GameOver(font, spriteBatch);
+			gameOver = new GameOver(font, spriteBatch);
             menu = new Menu(font, spriteBatch);
 
 			//Creates 2 players and 2 blank copies of that player for reset purposes
-            player = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
-            player2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
-            reset1 = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
-            reset2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
+			player = new Player(heroTexture, 1, menu.level, level1.collisionTiles, level1.collisionLethal);
+            player2 = new Player(hero2Texture, 2, menu.level, level1.collisionTiles, level1.collisionLethal);
+            reset1 = new Player(heroTexture, 1,menu.level, level1.collisionTiles, level1.collisionLethal);
+            reset2 = new Player(hero2Texture, 2,menu.level, level1.collisionTiles, level1.collisionLethal);
 			#endregion
 
 		}
@@ -102,57 +101,76 @@ namespace Game_Examen
             // TODO: Unload any non ContentManager content here
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime gameTime)
-        {
+		/// <summary>
+		/// Allows the game to run logic such as updating the world,
+		/// checking for collisions, gathering input, and playing audio.
+		/// </summary>
+		/// <param name="gameTime">Provides a snapshot of timing values.</param>
+		protected override void Update(GameTime gameTime)
+		{
 
-            reset1 = new Player(heroTexture, 1, level1.collisionTiles, level1.collisionLethal);
-            reset2 = new Player(hero2Texture, 2, level1.collisionTiles, level1.collisionLethal);
-			
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            {
-                Exit();
-            }
+			reset1 = new Player(heroTexture, 1, menu.level, level1.collisionTiles, level1.collisionLethal);
+			reset2 = new Player(hero2Texture, 2, menu.level, level1.collisionTiles, level1.collisionLethal);
 
-            // TODO: Add your update logic here
-            if (gameState.gameover)
-                menu.gameover();
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+			{
+				Exit();
+			}
+
+			// TODO: Add your update logic here
+			if (gameState.gameover)
+				menu.gameover();
 
 			//Game over menu selection switch
 			switch (gameOver.selection)
 			{
 				case 1:
-					player = reset1;
-					player2 = reset2;
-					tagger.reset();
-					gameOver.selection = 0;
-					gameState.gameover = false;
-					menu.screen = 1;
-					break;
-				case 2:
-					player = reset1;
-					player2 = reset2;
 
+					menu.refselect = true;
 					gameOver.selection = 0;
 					gameState.gameover = false;
 					menu.screen = 0;
 					break;
 			}
 
+			if (gameState.reset1)
+				player = reset1;
+
+			if (gameState.reset2)
+				player2 = reset2;
+
 			//Region for gamescreen related logic
 			#region gamescreen
 			if (gamescreen.startscreen)
-                menu.update();
+				menu.update();
+			if (menu.createlevel)
+			{
+				menu.createlevel = false;
+				level1.CreateLevel(menu.level);
+			}
 
-            if (gamescreen.playscreen)
+			if (gamescreen.refstartscreen)
+			{
+				gamescreen.refstartscreen = false;
+				player = reset1;
+				player2 = reset2;
+				tagger.reset();
+				gameOver.selection = 0;
+				gameState.gameover = false;
+			}
+			if (gamescreen.playscreen)
             {
-                player.Update(gameTime);
-                player2.Update(gameTime);
-                gameState.update(player.alive, player2.alive, player.playerRectangle, player2.playerRectangle,tagger.ownedP1,tagger.ownedP2);
+				if (menu.level == 1)
+				{
+					player.Update(gameTime);
+					player2.Update(gameTime);
+				}
+				if (menu.level == 2)
+				{
+					player.Update(gameTime);
+					player2.Update(gameTime);
+				}
+				gameState.update(player.alive, player2.alive, player.playerRectangle, player2.playerRectangle,tagger.ownedP1,tagger.ownedP2);
             }
             if (gamescreen.gameoverscreen)
             {
@@ -160,7 +178,7 @@ namespace Game_Examen
                 player2.deadframesdone(gameTime);
                 gameOver.update();
             }
-            if (menu.screen == 2 || gameOver.selection == 2)
+            if (menu.screen == 3 || gameOver.selection == 2)
                 this.Exit();
 			#endregion
 
@@ -187,9 +205,10 @@ namespace Game_Examen
 			//Region for drawing depending on gamescreen
 			#region gamescreen
 			if (gamescreen.playscreen)
-            {
-                level1.DrawLevel(spriteBatch);
-                player.Draw(spriteBatch);
+			{
+				level1.DrawLevel(spriteBatch);
+
+				player.Draw(spriteBatch);
                 player2.Draw(spriteBatch);
             }
             if (gamescreen.startscreen)
