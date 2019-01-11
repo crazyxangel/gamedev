@@ -77,9 +77,9 @@ namespace Game_Examen
             _accelerationjump = jumpheight;
             _acceleration = 1;
 			if (level == 1)
-				_positionalt = 860;
-			if (level == 2)
 				_positionalt = 80;
+			if (level == 2)
+				_positionalt = 860;
 			if (player == 1)
             {
                 _position_left = 0;

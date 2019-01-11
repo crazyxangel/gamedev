@@ -4,14 +4,14 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/gamedev/Game_Examen/Content/Background.png</File>
-    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/gamedev/Game_Examen/Content/crown.png</File>
-    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/gamedev/Game_Examen/Content/Font.spritefont</File>
-    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/gamedev/Game_Examen/Content/Hero.png</File>
-    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/gamedev/Game_Examen/Content/Hero2.png</File>
-    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/gamedev/Game_Examen/Content/Solid.png</File>
-    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/gamedev/Game_Examen/Content/Spike.png</File>
-    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/gamedev/Game_Examen/Content/tiles.png</File>
+    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/Code/Game_Examen/Content/Background.png</File>
+    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/Code/Game_Examen/Content/crown.png</File>
+    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/Code/Game_Examen/Content/Font.spritefont</File>
+    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/Code/Game_Examen/Content/Hero.png</File>
+    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/Code/Game_Examen/Content/Hero2.png</File>
+    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/Code/Game_Examen/Content/Solid.png</File>
+    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/Code/Game_Examen/Content/Spike.png</File>
+    <File>d:/Users/seanh/Documents/GitHub/Game_Examen/Code/Game_Examen/Content/tiles.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

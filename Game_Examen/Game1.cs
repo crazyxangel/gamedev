@@ -146,7 +146,10 @@ namespace Game_Examen
 			if (menu.createlevel)
 			{
 				menu.createlevel = false;
+				level1 = new Level(tilesTexture);
 				level1.CreateLevel(menu.level);
+				reset1 = new Player(heroTexture, 1, menu.level, level1.collisionTiles, level1.collisionLethal);
+				reset2 = new Player(hero2Texture, 2, menu.level, level1.collisionTiles, level1.collisionLethal);
 			}
 
 			if (gamescreen.refstartscreen)

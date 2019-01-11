@@ -62,8 +62,10 @@ namespace Game_Examen
 			spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 500), Color.White);
             spriteBatch.DrawString(font, "menu option 3", new Vector2(320, 600), Color.White);
             spriteBatch.DrawString(font, "Navigate with Z and S select with Enter", new Vector2(320, 700), Color.White);
-
-            spriteBatch.DrawString(font, ">", _positions[pos], Color.White);
+			spriteBatch.DrawString(font, "The goal is to reach the crown first,", new Vector2(320, 800), Color.White);
+			spriteBatch.DrawString(font, " when you reach the crown you become the tagger if you touch your oponent you win.", new Vector2(320, 850), Color.White);
+			spriteBatch.DrawString(font, "But beware the moment one of you becomes the tagger both of you can die to enviromental hazards", new Vector2(320, 900), Color.White);
+			spriteBatch.DrawString(font, ">", _positions[pos], Color.White);
         }
 		/// <summary>
 		/// sets the screen variable to the gameover value

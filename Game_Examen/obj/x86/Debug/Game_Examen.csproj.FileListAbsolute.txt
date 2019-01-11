@@ -126,3 +126,36 @@ d:\Users\seanh\Documents\GitHub\Game_Examen\gamedev\Game_Examen\obj\x86\Debug\Ga
 d:\Users\seanh\Documents\GitHub\Game_Examen\gamedev\Game_Examen\obj\x86\Debug\Game_Examen.csproj.CopyComplete
 d:\Users\seanh\Documents\GitHub\Game_Examen\gamedev\Game_Examen\obj\x86\Debug\Game_Examen.exe
 d:\Users\seanh\Documents\GitHub\Game_Examen\gamedev\Game_Examen\obj\x86\Debug\Game_Examen.pdb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\Images\Tiles\Tile (2).xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\Images\Tiles\Tile (5).xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\Background.xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\crown.xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\Font.xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\Hero.xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\Hero2.xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\Solid.xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\Spike.xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Content\tiles.xnb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Game_Examen.exe
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\Game_Examen.pdb
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\MonoGame.Framework.dll
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.dll
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.XInput.dll
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\MonoGame.Framework.xml
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.xml
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\bin\Windows\x86\Debug\SharpDX.XInput.xml
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\obj\x86\Debug\Game_Examen.csprojAssemblyReference.cache
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\obj\x86\Debug\Game_Examen.csproj.CoreCompileInputs.cache
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\obj\x86\Debug\Game_Examen.csproj.CopyComplete
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\obj\x86\Debug\Game_Examen.exe
+d:\Users\seanh\Documents\GitHub\Game_Examen\Code\Game_Examen\obj\x86\Debug\Game_Examen.pdb
